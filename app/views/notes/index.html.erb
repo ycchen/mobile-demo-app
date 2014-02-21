@@ -1,10 +1,11 @@
   <h1>Listing notes</h1>
-    <%= link_to "Add", new_note_path, "data-icon" => "plus", "class" => "ui-btn-right" %>
+    <%= link_to "Add Note", new_note_path, :class => "ui-btn-right btn btn-mini" %>
 <table class="table table-striped">
   <thead>
     <tr>
       <th>Title</th>
       <th>Body</th>
+      <th>Action</th>
     </tr>
   </thead>
   <tbody>
@@ -12,8 +13,11 @@
         <tr>
           <td><%= note.title %></td>
           <td><%= note.body %></td>
-          <td><%= link_to 'edit note', edit_note_path(note), "data-icon" => "gear", "class" => "ui-btn-right" %></td>
-          <%#= link_to 'Destroy', note, "data-icon" => "delete","class" => "ui-btn-right" ,method: :delete, data: { confirm: 'Are you sure?' } %>
+          <td>
+            <%= link_to 'edit', edit_note_path(note), :class => 'btn btn-mini'%>
+            <%= link_to 'delete',note, data:{confirm: 'Are you sure?'}, method: :delete, :class => 'btn btn-mini btn-danger'%>
+          </td>
+          
         </tr>  
       <% end %>
   </tbody>

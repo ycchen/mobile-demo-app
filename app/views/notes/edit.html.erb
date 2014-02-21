@@ -1,9 +1,5 @@
-<div data-role="header" data-position="fixed">
+<div class="page-header">
 	<h1>Editing note</h1>
-	<%= link_to "Home", notes_url, "data-dom-cache" => "true", class: "ui-btn-left" %>
-	<%= link_to "Delete", @note, method: :delete, "data-icon" => "delete", class: "ui-btn-right" %>
 </div>
 
-<div data-role="content">
-	<%= render 'form' %>
-</div>
+<%= render :partial => 'form' %>
