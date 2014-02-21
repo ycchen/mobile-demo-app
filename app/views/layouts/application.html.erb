@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+	<title>MobileApp</title>
+	<%= stylesheet_link_tag    "application", media: "all"%>
+	<%= javascript_include_tag "application"%>
+	<%= csrf_meta_tags %>
+</head>
+<body>
+
+
+ <div class="navbar navbar-fluid-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Mobile Demo App</a>
+          <div class="container-fluid nav-collapse">
+            <ul class="nav">
+              <!-- <li></li> -->
+              <li><%= link_to "Note", notes_path  %></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+
+        <div class="span9">
+          <%= bootstrap_flash %>
+          <%= yield %>
+        </div>
+      </div><!--/row-->
+
+      <footer>
+        <p>&copy; Chen 2014</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+<div data-role="header" data-position="fixed">
+	<p id="notice"><%= notice %></p>
+	<p><strong><%= @note.title %></strong></p>
+	<%= link_to "Home", notes_url, "data-dom-cache" => "true", class: "ui-btn-right" %>
+</div>
+
+<div data-role="content">
+	<p>
+	  <strong>Body:</strong>
+	  <%= @note.body %>
+	</p>
+
+</div>
+
+<%#= link_to 'Edit', edit_note_path(@note) %> 
+<%#= link_to 'Back', notes_path %>

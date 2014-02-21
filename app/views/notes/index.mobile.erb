@@ -1,0 +1,19 @@
+
+<div data-role="header">
+	<h1>notes</h1>
+	<%= link_to "Add", new_note_path, "data-icon" => "plus", "class" => "ui-btn-right" %>
+</div>
+
+<div data-role="content">
+	<p> 
+		<%=  request_device?(:iphone)?  'iphone' : 'no iphone'  %>
+		<%= request_device?(:iphone) %>
+	</p>
+	<% for item in %w/apple banana berry/ %>
+		<%= item %><br/>
+	<% end %>
+	<% @notes.each do |note| %>
+		<%= note.title %>
+		<%= note.body %><br/>
+	<% end %>
+</div>

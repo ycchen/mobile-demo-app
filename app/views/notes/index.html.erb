@@ -1,0 +1,20 @@
+  <h1>Listing notes</h1>
+    <%= link_to "Add", new_note_path, "data-icon" => "plus", "class" => "ui-btn-right" %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @notes.each do |note| %>
+        <tr>
+          <td><%= note.title %></td>
+          <td><%= note.body %></td>
+          <td><%= link_to 'edit note', edit_note_path(note), "data-icon" => "gear", "class" => "ui-btn-right" %></td>
+          <%#= link_to 'Destroy', note, "data-icon" => "delete","class" => "ui-btn-right" ,method: :delete, data: { confirm: 'Are you sure?' } %>
+        </tr>  
+      <% end %>
+  </tbody>
+</table>
