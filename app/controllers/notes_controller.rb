@@ -25,15 +25,15 @@ class NotesController < ApplicationController
   # POST /notes.json
   def create
     @note = Note.new(note_params)
-    raise @note.inspect
-
     respond_to do |format|
       if @note.save
         format.html { redirect_to @note, notice: 'Note was successfully created.' }
         format.json { render action: 'show', status: :created, location: @note }
+        format.mobile { redirect_to @note }
       else
         format.html { render action: 'new' }
         format.json { render json: @note.errors, status: :unprocessable_entity }
+        format.mobile {render action: 'new'}
       end
     end
   end
@@ -45,9 +45,11 @@ class NotesController < ApplicationController
       if @note.update(note_params)
         format.html { redirect_to @note, notice: 'Note was successfully updated.' }
         format.json { head :no_content }
+        format.mobile { redirect_to @note}
       else
         format.html { render action: 'edit' }
         format.json { render json: @note.errors, status: :unprocessable_entity }
+        format.mobile {render action: 'edit'}
       end
     end
   end
@@ -59,6 +61,7 @@ class NotesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to notes_url }
       format.json { head :no_content }
+      format.mobile { redirect_to notes_url}
     end
   end
 

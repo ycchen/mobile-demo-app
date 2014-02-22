@@ -30,9 +30,11 @@ class ImagesController < ApplicationController
       if @image.save
         format.html { redirect_to @image, notice: 'Image was successfully created.' }
         format.json { render action: 'show', status: :created, location: @image }
+        format.mobile { redirect_to @image }
       else
         format.html { render action: 'new' }
         format.json { render json: @image.errors, status: :unprocessable_entity }
+        format.mobile { render action: 'new' }
       end
     end
   end
@@ -44,9 +46,11 @@ class ImagesController < ApplicationController
       if @image.update(image_params)
         format.html { redirect_to @image, notice: 'Image was successfully updated.' }
         format.json { head :no_content }
+        format.mobile { redirect_to @image }
       else
         format.html { render action: 'edit' }
         format.json { render json: @image.errors, status: :unprocessable_entity }
+        format.mobile { render action: 'edit' }
       end
     end
   end
@@ -58,6 +62,7 @@ class ImagesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to images_url }
       format.json { head :no_content }
+      format.mobile { redirect_to images_url }
     end
   end
 

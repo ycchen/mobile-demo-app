@@ -4,6 +4,9 @@
 <div data-role="content">
   <p><%= @note.title %></p>
   <p><%= @note.body %></p>
+  <% @note.pictures.each do |pic| %>
+    <%= image_tag(pic.file.url, :heigh => 200, :width => 200) %>
+  <% end %>
 </div>
 <div data-role="footer">
   <%= link_to 'Edit', edit_note_path(@note) %>

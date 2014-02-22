@@ -11,7 +11,10 @@
 <p><strong>Latitude:</strong><%= @image.latitude %></p>
 
 <p><strong>Longitude:</strong><%= @image.longitude %></p>
-
+  <% @image.pictures.each do |pic| %>
+    <%= image_tag(pic.file.url, :heigh => 200, :width => 200) %>
+  <% end %>
+</div>
 <div data-role="footer">
   <%= link_to 'Edit', edit_image_path(@image) %>
   <%= link_to 'Destroy', @images, confirm: 'Are you sure?', method: :delete %>
