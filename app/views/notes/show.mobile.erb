@@ -2,12 +2,8 @@
   <h1><%= @note.title %></h1>
 </div>
 <div data-role="content">
-  <p>
-    <%= @note.title %>
-  </p>
-  <p>
-    <%= @note.body %>
-  </p>
+  <p><%= @note.title %></p>
+  <p><%= @note.body %></p>
 </div>
 <div data-role="footer">
   <%= link_to 'Edit', edit_note_path(@note) %>

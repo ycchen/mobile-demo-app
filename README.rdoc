@@ -26,3 +26,81 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+# Generate User model use 'devise' gem
+1. run the generator
+
+$ rails generate devise:install
+
+2. generate user model
+
+$ rails generate devise User
+
+# generate registrations_controller.rb
+$ rails g controller registrations index
+
+# generate devise views files
+$ rails g devise:views devise
+
+# Generate Users controller
+$ rails g controller Users index new create edit update destroy
+
+# Adding upload file with carrierwave gem
+https://github.com/carrierwaveuploader/carrierwave/wiki
+1. start off by generating an uploader:
+$ rails generate uploader file
+# this will created app/uploaders/file_uploader.rb
+
+== Multiple files upload with carrierwave and nested_form
+# add nested_form to Gemfile
+gem 'nested_form'
+
+# install nested_form
+$ rails g nested_form:install
+
+# updated assets\javascripts\application.js to add nested_form js
+//= require jquery_nested_form
+
+# Generate picture model
+$ rails g model picture attachable:references file:string
+
+# Updated migration script to add :polymorphic => true on picture model
+class CreatePictures < ActiveRecord::Migration
+  def change
+    create_table :pictures do |t|
+      t.references :attachable, index: true, :polymorphic => true
+      t.string :file
+
+      t.timestamps
+    end
+  end
+end
+
+$ rake db:migrate
+
+== Generate Images model 
+$ rails g scaffold image name:string location:string latitude:decimal longitude:decimal
+
+== Update relationship between image and picture models
+
+--model\image.rb
+has_many :pictures, :as => :attachable, :dependent => :destroy
+accepts_nested_attributes_for :pictures, :allow_destroy => true
+
+--model\picture.rb
+  belongs_to :attachable, polymorphic: true
+  mount_uploader :file FileUploader
+
+## Update controllers\image.rb image_params method
+added :pictures_attributes => [:id, :file, '_destroy'] to the permit()
+
+## Modified views\images\_form.html.erb to include upload form
+
+===============================================================
+## problem with carrierwave not able to upload with jquery mobile ##
+http://stackoverflow.com/questions/16815569/rails-file-field-does-not-upload-anything
+--OK after spending hours on the matter, the problem is that jQuery Mobile submits forms with Ajax by default, and files cannnot be submitted with Ajax without using plugins etc. So the solution is to disable the Ajax like this:
+
+= form_for(@business_profile, :url => business_profile_path, :validate => true, :html => { :'data-ajax' => false }) do |f|
+
+===============================================================

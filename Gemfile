@@ -24,6 +24,10 @@ gem 'mobylette'
 gem "jquery_mobile_rails", "~> 1.4.0"
 gem 'twitter-bootstrap-rails'
 
+gem 'devise'  # Devise is a flexible authentication solution
+gem 'carrierwave' # upload file gem
+gem 'nested_form'				# Use neted_form gem
+gem 'better_errors'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 gem 'jquery-turbolinks'

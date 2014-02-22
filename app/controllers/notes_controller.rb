@@ -25,6 +25,7 @@ class NotesController < ApplicationController
   # POST /notes.json
   def create
     @note = Note.new(note_params)
+    raise @note.inspect
 
     respond_to do |format|
       if @note.save
@@ -69,6 +70,6 @@ class NotesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def note_params
-      params.require(:note).permit(:title, :body)
+      params.require(:note).permit(:title, :body,:pictures_attributes => [:id, :file, '_destroy'])
     end
 end

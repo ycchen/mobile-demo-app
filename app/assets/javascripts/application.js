@@ -16,4 +16,4 @@
 //= require jquery.mobile
 //= require turbolinks
 //= require_tree .
-
+//= require jquery_nested_form

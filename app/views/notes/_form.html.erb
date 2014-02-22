@@ -1,4 +1,4 @@
-<%= form_for(@note, :html => {:class => 'form-horizontal'}) do |f| %>
+<%= nested_form_for(@note, :html=>{:multipart => true }) do |f| %>
   <% if @note.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@note.errors.count, "error") %> prohibited this note from being saved:</h2>
@@ -25,9 +25,21 @@
     </div>
     <div class="controls">
     <%= f.text_area :body, :class => 'text_field' %>
+    </div>
   </div>
-  </div>
+  
+  
+  <%= f.fields_for :pictures do |p| %>
+    <%= image_tag(p.object.file.url, :heigh => 200, :width => 200) %>
+    <%= p.label :file %>
+    <%= p.file_field :file %>
+    <%= p.link_to_remove t('.remove_image') %>
+  <% end %>
+
+  <p><%= f.link_to_add t('.add_image'), :pictures %></p>
+  
   <div class="form-actions">
     <%= f.submit :class => 'btn btn-primary' %>
   </div>
+
 <% end %>

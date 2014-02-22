@@ -8,6 +8,14 @@
   <dt><strong>Body:</strong></dt>
   <dd><%= @note.body %></dd>
 </dl>
+
+
+<p>  
+  <% @note.pictures.each do |pic| %>
+    <%= image_tag(pic.file.url, :heigh => 200, :width => 200) %>
+  <% end %>
+</p>
+
 <div class="form-actions">
   <%= link_to 'edit', edit_note_path(@note), :class => 'btn' %>
   <%= link_to 'back', notes_path, :class => 'btn' %>
