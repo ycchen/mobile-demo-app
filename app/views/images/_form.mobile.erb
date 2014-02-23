@@ -55,7 +55,7 @@
     <%= pic.link_to_remove t('.remove_image') %>
   <% end %>
 
-  <%= f.link_to_add t('.add_image'), :pictures %>
+  <%= f.link_to_add t('.add_image'), :pictures, :class =>'btn btn-small' %>
 
   <div class="form-actions">
     <%= f.submit :class => 'btn btn-primary'%>

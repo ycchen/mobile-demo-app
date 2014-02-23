@@ -30,11 +30,11 @@
 		<h1>Mobile Demo App</h1>
 		<div data-role="navbar">
 			<ul>
-				<li><a href="<%= root_path %>"   data-icon="home" data-no-turbolink='true' class="ui-icon-home <%= 'ui-btn-active' if controller_name == 'home' %>">Home</a></li>
-				<li><a href="<%= users_path %>"  data-icon="user" data-no-turbolink='true' class="ui-icon-user <%= 'ui-btn-active' if controller_name == 'users' %>">User</a></li>
-				<li><a href="<%= images_path %>" data-icon="camera" data-no-turbolink='true' class="ui-icon-camera <%= 'ui-btn-active' if controller_name == 'images' %>">Images</a></li>
-				<li><a href="<%= notes_path %>"  data-icon="star" data-no-turbolink='true' class="ui-icon-star <%= 'ui-btn-active' if controller_name == 'notes' %>">Notes</a></li>
-				<li><a href="<%= root_url %>" data-icon="refresh" class="ui-icon-refresh">Refresh</a></li>
+				<li><a href="<%= root_path %>"   data-icon="home" data-no-turbolink='true' class="<%= 'ui-btn-active' if controller_name == 'home' %>">Home</a></li>
+				<li><a href="<%= users_path %>"  data-icon="user" data-no-turbolink='true' class="<%= 'ui-btn-active' if controller_name == 'users' %>">User</a></li>
+				<li><a href="<%= images_path %>" data-icon="camera" data-no-turbolink='true' class="<%= 'ui-btn-active' if controller_name == 'images' %>">Images</a></li>
+				<li><a href="<%= notes_path %>"  data-icon="star" data-no-turbolink='true' class="<%= 'ui-btn-active' if controller_name == 'notes' %>">Notes</a></li>
+				<li><a href="<%= root_url %>" data-icon="refresh" class="">Refresh</a></li>
 			</ul>
 		</div>
 
@@ -48,8 +48,8 @@
 		<!-- <h4>Page Footer</h4> -->
 		<div data-role="navbar">
 			<ul>
-				<li><a href="./" data-icon="home" class="ui-icon-home <%= 'ui-btn-active' if controller_name == 'home' %>">Home</a></li>
-				<li><a href="" data-icon="gear" class="ui-icon-gear">Settings</a></li>
+				<li><a href="./" data-icon="home" class="<%= 'ui-btn-active' if controller_name == 'home' %>">Home</a></li>
+				<li><a href="" data-icon="gear" class="">Settings</a></li>
 			</ul>
 		</div>
 	</div><!-- /footer -->
